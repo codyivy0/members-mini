@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 1rem;
+  height: 2rem;
+}
+.navLink {
+  text-decoration: none;
+  color: green;
+  font-size: 2rem;
+}
+.navLink:hover {
+  color: darkgreen;
+  font-size: 3rem;
+}
