@@ -1,14 +1,23 @@
 package com.example.members.dto;
 
 public class Message {
+    private String id;
     private String author;
     private String message;
 
 
-    public Message(String author, String message) {
+    public Message(Integer id, String author, String message) {
+        this.id = java.util.UUID.randomUUID().toString();
         this.author = author;
         this.message = message;
     }
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public String getAuthor() {
         return author;

@@ -25,4 +25,9 @@ public class HelloController {
         return messages;
     }
 
+    @DeleteMapping("/messages/{id}")
+    public List<Message> deleteMessage(@PathVariable String id) {
+        messages.removeIf(msg -> msg.getId().equals(id));
+        return messages;
+    }
 }
