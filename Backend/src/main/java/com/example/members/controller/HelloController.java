@@ -2,7 +2,8 @@ package com.example.members.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.members.dto.Message;
 
@@ -19,10 +20,14 @@ public class HelloController {
     }
 
     @PostMapping("/submit")
-    public List<Message> submitMessage(@RequestBody Message newMessage) {
-        System.out.println("Received message: " + newMessage);
-        messages.add(newMessage);
-        return messages;
+    public ResponseEntity<List<Message>> submitMessage(@RequestBody Message newMessage) {
+        if (newMessage.getAuthor().isEmpty() || newMessage.getMessage().isEmpty()) {
+            System.out.println("Author or message is empty");
+            return ResponseEntity.badRequest().body(messages);
+        } else {
+            messages.add(newMessage);
+            return ResponseEntity.ok(messages);
+        }
     }
 
     @DeleteMapping("/messages/{id}")

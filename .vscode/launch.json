@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MembersApplication<members>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.members.MembersApplication",
+            "projectName": "members",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

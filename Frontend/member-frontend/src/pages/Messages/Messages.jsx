@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useState, useEffect } from "react";
 import MessageContainer from "../../components/MessageContainer/MessageContainer";
 import Message from "../../components/Message/Message";

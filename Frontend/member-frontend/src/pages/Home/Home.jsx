@@ -20,7 +20,10 @@ export default function Home() {
       },
       body: JSON.stringify({ author: author, message: message }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) throw new Error("Fields cannot be empty");
+        else return response.json();
+      })
       .then((data) => {
         console.log("Success:", data);
         setProgress("operation success!");
@@ -29,7 +32,7 @@ export default function Home() {
       })
       .catch((error) => {
         console.error("Error:", error);
-        setProgress("operation failed");
+        setProgress("operation failed: " + error.message);
       });
   }
 
@@ -38,12 +41,14 @@ export default function Home() {
       <h1>HOME</h1>
       <div className={styles.form}>
         <input
+          className={styles.input}
           type="text"
           value={author}
           placeholder="Enter your name"
           onChange={handleChangeAuthor}
         />
         <input
+          className={styles.input}
           type="text"
           value={message}
           placeholder="enter your message"
